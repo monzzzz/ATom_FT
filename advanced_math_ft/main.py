@@ -919,8 +919,9 @@ class FFTApplications2(Scene):
         self.play(FadeIn(notch_image))
         self.wait(2)
         
-        
-class Conclusion(Scene):
+from manim import *
+
+class FullPresentation(Scene):
     def construct(self):
         title = Text("Thank you for listening", font_size=16)
         title.move_to(ORIGIN)
