@@ -889,8 +889,32 @@ class FFTApplications(Scene):
 
         # self.play(FadeIn(labels))
         # self.wait()
+<<<<<<< HEAD
         
 class FFTApplications2(Scene):
+=======
+
+class FFTExplanation(Scene):
+    def construct(self):
+        title = Text("DFT vs FFT", font_size=48).to_edge(UP)
+        self.play(Write(title))
+
+        slow = MathTex("O(N^2)", font_size=60, color=RED).shift(LEFT*3)
+        fast = MathTex("O(N \\log N)", font_size=60, color=GREEN).shift(RIGHT*3)
+
+        arrow = Arrow(slow, fast)
+
+        self.play(Write(slow))
+        self.play(Create(arrow))
+        self.play(Write(fast))
+        self.wait()
+
+        msg = Text("FFT enables Wi-Fi, JPEG, MP3, MRI, and more.", font_size=28).to_edge(DOWN)
+        self.play(FadeIn(msg))
+        self.wait()
+
+class CircleFTVisualization(Scene):
+>>>>>>> e9b2444 (Added CircleFTVisualization scene and updated FullPresentation)
     def construct(self):
         # Mr. Geddes' Photo - Fourier Transform Demonstration
         title = Text("Image Processing", font_size=16)
@@ -923,7 +947,23 @@ from manim import *
 
 class FullPresentation(Scene):
     def construct(self):
+<<<<<<< HEAD
         title = Text("Thank you for listening", font_size=16)
         title.move_to(ORIGIN)
         self.play(Write(title))
         self.wait(1)
+=======
+        for SceneClass in [
+            PresentationIntro,
+            SignalIntro,
+            FourierSeriesScene,
+            FourierTransformDefinition,
+            CircleFTVisualization,
+            FFTExplanation,
+            FFTApplications,
+            SpectrogramScene,
+        ]:
+            self.play(FadeOut(VGroup(*self.mobjects)))
+            scene = SceneClass()
+            scene.construct()
+>>>>>>> e9b2444 (Added CircleFTVisualization scene and updated FullPresentation)
